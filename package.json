@@ -1,0 +1,9 @@
+{
+  "name": "storeopsco-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free Etsy price calculator by StoreOpsCo",
+  "scripts": {
+    "test": "node --test"
+  }
+}
