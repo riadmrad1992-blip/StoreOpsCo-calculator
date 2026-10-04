@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Etsy price calculator: what should you really charge? | StoreOpsCo</title>
-  <meta name="description" content="Free Etsy price calculator. Enter your costs once and see the price that covers your time, shipping, Etsy fees, ads and refunds, and still leaves the profit you want.">
+  <meta name="description" content="A free Etsy fee calculator for sellers. Enter your costs once and see the price that covers your time, shipping, Etsy fees, ads and refunds, and still leaves the profit you want.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Etsy price calculator: what should you really charge?">
   <meta property="og:description" content="Enter your costs once. See the price that covers your time, shipping, Etsy fees, ads and refunds, and still leaves the profit you want.">
@@ -252,6 +252,7 @@
                 </div>
               </div>
               <p class="gap-note" id="gap-note"></p>
+              <p class="more-products" id="more-products" hidden>Most shops sell more than one product. <span id="more-products-text">Check them all at once in Profit Pilot.</span></p>
             </div>
           </div>
 
@@ -282,20 +283,32 @@
       </div>
     </div>
 
-    <!-- Next step -->
-    <section class="card card-next" aria-labelledby="next-title">
-      <h2 id="next-title">Do this for every product, automatically</h2>
-      <p>Profit Pilot is a Notion template that runs this same maths for every product in your shop and keeps your costs, fees, real profit and price health in one place.</p>
-      <div class="next-actions" id="next-actions">
-        <a class="btn btn-primary" id="shop-link" href="#" target="_blank" rel="noopener" hidden>Track every product in Profit Pilot</a>
-        <a class="btn btn-secondary" id="video-link" href="#" target="_blank" rel="noopener" hidden>Watch how the formula works</a>
-      </div>
-    </section>
+    <div class="next-stack">
+      <!-- Next step -->
+      <section class="card card-next" aria-labelledby="next-title">
+        <h2 id="next-title">Do this for every product, automatically</h2>
+        <p>This calculator prices one product. Profit Pilot prices every product in Notion, flags the ones that lose money, and keeps your Etsy fee settings in one place.</p>
+        <div class="next-actions" id="next-actions">
+          <a class="btn btn-primary" id="shop-link" href="#" target="_blank" rel="noopener" hidden>Track every product in Profit Pilot</a>
+          <a class="btn btn-secondary" id="video-link" href="#" target="_blank" rel="noopener" hidden>Watch how the formula works</a>
+        </div>
+      </section>
+
+      <!-- Email sign-up (plain link, hidden when EMAIL_SIGNUP_URL is empty) -->
+      <section class="card card-signup" id="signup-card" aria-labelledby="signup-title" hidden>
+        <h2 id="signup-title">New free tools and Etsy back-office tips</h2>
+        <p>A short email when something new is ready. Unsubscribe any time.</p>
+        <div class="next-actions">
+          <a class="btn btn-secondary" id="signup-link" href="#" target="_blank" rel="noopener">Get updates</a>
+        </div>
+        <p class="signup-note">Your calculator numbers are never sent.</p>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <p>US Etsy rates, 2026. Fees change and differ by country: check Etsy's Fees &amp; Payments Policy for yours. This calculator gives estimates from the numbers you enter.</p>
-    <p>Nothing you type leaves your device. Your numbers are saved only in this browser.</p>
+    <p id="privacy-note">Nothing you type leaves your device. Your numbers are saved only in this browser.</p>
     <p class="made-by">Made by <span class="wordmark-inline">StoreOps<span class="wordmark-co">Co</span></span></p>
   </footer>
 

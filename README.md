@@ -36,7 +36,38 @@ This gives you a public link to put in videos, Shorts and LinkedIn posts.
 
 From then on, every change saved to the `main` branch republishes the page automatically (it takes a minute or two).
 
-## 4. Run the tests (optional)
+## 4. Links to use in videos and posts
+
+Add a source tag to the end of the link, so you can tell where visitors come from. Copy the one that matches where you post it:
+
+```
+https://riadmrad1992-blip.github.io/StoreOpsCo-calculator/?utm_source=youtube&utm_medium=video4
+https://riadmrad1992-blip.github.io/StoreOpsCo-calculator/?utm_source=youtube&utm_medium=short
+https://riadmrad1992-blip.github.io/StoreOpsCo-calculator/?utm_source=tiktok&utm_medium=short
+https://riadmrad1992-blip.github.io/StoreOpsCo-calculator/?utm_source=instagram&utm_medium=reel
+https://riadmrad1992-blip.github.io/StoreOpsCo-calculator/?utm_source=linkedin&utm_medium=post
+```
+
+Analytics tools show these tags, so you can see which video or post sends visitors. Change `video4` to `video5`, `video6` and so on for each new video. The tags do not change how the page looks or works.
+
+## 5. Turning on the email link and the visit counter
+
+Both are off until you add something to `config.js`. Open it with Notepad (as in section 2), paste between the quotes, save, and refresh.
+
+**Email sign-up link.** Create a sign-up page in your email tool and copy its link. Then edit this line:
+```
+EMAIL_SIGNUP_URL: "https://your-email-tool.example/your-signup-page",
+```
+A "Get updates" card appears. It is a plain link that opens in a new tab: no form and no email-tool code is added to the page.
+
+**Visit counter (optional).** Pick a privacy-friendly analytics tool that does not use cookies. **Check the provider's current terms and pricing before turning it on.** Your provider shows you a script address and, usually, a token or domain. Edit these lines:
+```
+ANALYTICS_SCRIPT_SRC: "https://analytics.example/script.js",
+ANALYTICS_ATTRS: { "data-token": "paste-your-token-here" },
+```
+The page then loads that one script and adds one sentence to the privacy note at the bottom (you can change it in `ANALYTICS_NOTE`). If `ANALYTICS_SCRIPT_SRC` stays empty, no analytics code is loaded and the page makes no extra requests.
+
+## 6. Run the tests (optional)
 
 The tests check the maths against the worked examples in `ref-test-cases.json`.
 
@@ -46,7 +77,7 @@ The tests check the maths against the worked examples in `ref-test-cases.json`.
 
 You should see `# pass 15` and `# fail 0` at the end.
 
-## 5. Check before you share
+## 7. Check before you share
 
 - Open the page and look at the example (wax melts): the recommended price should be **$19.53**.
 - Click **Clear example** and try one of your own products.
@@ -61,6 +92,6 @@ You should see `# pass 15` and `# fail 0` at the end.
 | `styles.css` | Colours, fonts and layout |
 | `calc.js` | The maths (same formulas as Profit Pilot) |
 | `app.js` | Makes the page work: reads what you type and updates the results |
-| `config.js` | Your links |
+| `config.js` | Your links, email link and optional visit counter |
 | `calc.test.js` | The tests |
 | `ref-*.md`, `ref-test-cases.json` | Reference notes: formulas, fees, brand, wording |

@@ -464,6 +464,10 @@
       }
     }
 
+    // Extra line for shops that are losing money or below target
+    var more = $('more-products');
+    more.hidden = !(r.hasCurrentPrice && (r.healthKey === 'losing' || r.healthKey === 'below'));
+
     // Costs
     setText('total-cost', money(r.totalCost));
     setText('material-cost', money(r.materialCost));
@@ -495,6 +499,37 @@
   setupLink('video-link', CONFIG.VIDEO_URL);
   Array.prototype.forEach.call(document.querySelectorAll('#next-actions a'), function (a) { a.hidden = false; });
   if (!$('next-actions').children.length) $('next-actions').hidden = true;
+
+  function validUrl(url) { return typeof url === 'string' && /^https?:\/\//i.test(url.trim()); }
+
+  if (validUrl(CONFIG.SHOP_URL)) {
+    var moreText = $('more-products-text');
+    var moreLink = document.createElement('a');
+    moreLink.href = CONFIG.SHOP_URL.trim();
+    moreLink.target = '_blank';
+    moreLink.rel = 'noopener';
+    moreLink.textContent = moreText.textContent;
+    moreText.parentNode.replaceChild(moreLink, moreText);
+  }
+
+  if (validUrl(CONFIG.EMAIL_SIGNUP_URL)) {
+    $('signup-link').href = CONFIG.EMAIL_SIGNUP_URL.trim();
+    $('signup-card').hidden = false;
+  }
+
+  // Optional privacy-friendly visit counter: nothing loads unless a source is set.
+  if (validUrl(CONFIG.ANALYTICS_SCRIPT_SRC)) {
+    var script = document.createElement('script');
+    script.defer = true;
+    script.src = CONFIG.ANALYTICS_SCRIPT_SRC.trim();
+    var attrs = CONFIG.ANALYTICS_ATTRS || {};
+    Object.keys(attrs).forEach(function (k) { script.setAttribute(k, String(attrs[k])); });
+    document.body.appendChild(script);
+    if (typeof CONFIG.ANALYTICS_NOTE === 'string' && CONFIG.ANALYTICS_NOTE.trim()) {
+      var note = $('privacy-note');
+      note.textContent = note.textContent + ' ' + CONFIG.ANALYTICS_NOTE.trim();
+    }
+  }
 
   // ---------- sticky bar on phones ----------
   // Hidden while the result card itself is on screen.
