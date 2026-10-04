@@ -146,7 +146,7 @@ h1 {
   }
   .col-inputs { grid-column: 1; grid-row: 1; }
   .col-results { grid-column: 2; grid-row: 1 / span 2; align-self: stretch; }
-  .card-next { grid-column: 1; grid-row: 2; }
+  .next-stack { grid-column: 1; grid-row: 2; }
   .results-sticky {
     position: sticky;
     top: 16px;
@@ -651,7 +651,26 @@ details[open] .chevron::after { transform: translate(-50%, -30%) rotate(-135deg)
 
 /* ---------- next step ---------- */
 
-.card-next p {
+.next-stack { display: grid; gap: 16px; min-width: 0; }
+[hidden] { display: none !important; }
+.more-products {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+.more-products a {
+  color: var(--signal);
+  text-decoration: underline;
+  display: inline-block;
+  padding: 12px 0;
+  margin: -12px 0;
+}
+.signup-note {
+  margin-top: 12px;
+  font-size: 13px;
+}
+.card-next p,
+.card-signup p {
   margin-top: 8px;
   color: var(--ink-muted);
   max-width: 60ch;
