@@ -17,8 +17,8 @@
  */
 window.CONFIG = {
   SHOP_URL: "",
-  VIDEO_URL: "",
-  EMAIL_SIGNUP_URL: "",
+  VIDEO_URL: "https://www.youtube.com/watch?v=qESs1upqcWg",
+  EMAIL_SIGNUP_URL: "https://storeopsco.kit.com/a3fb02a7c9",
   ANALYTICS_SCRIPT_SRC: "",
   ANALYTICS_ATTRS: {},
   ANALYTICS_NOTE: "Anonymous visit counts only. No cookies, no personal data.",
